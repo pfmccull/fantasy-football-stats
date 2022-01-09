@@ -13,7 +13,7 @@ pip install ff_stats
 ```python
 >>> import ff_stats
 # Initialize with season and week(s) of interest
->>> fm = ff_stats.FantasyManager(Season = '2021', weeks = ['9', 'Rest of Season'])
+>>> fm = ff_stats.FantasyManager(weeks = ['9', 'Rest of Season'], season = '2021'
 
 # Scrape projections
 >>> fm.get_projections()
@@ -47,7 +47,14 @@ fm.combine_sources()
 
 
 ## Notes
-* For private ESPN leagues the swid and espn_s2 cookies must be provided. They can be found in your browser settings.
+* For private ESPN leagues the swid and espn_s2 cookies must be provided. The cookies can be found in Chrome with the following steps:
+  1. Login to your ESPN account and go to your fantasty team.
+  2. Right click anywhere on the page and click 'select'.
+  3. Click the 'Application' tab at the top of the page.
+  4. On the left-hand side find 'cookies' under storage and select 'https://fantasy.espn.com'.
+  5. The cookies ('espn_s2' and 'SWID') can be found under the 'name' column. Paste the values (including the curly brackets for SWID) into a cookies dictionary. 
+
+
 
 * Scoring settings can be altered by accessing scoring settings
 ```python
