@@ -10,16 +10,20 @@ from .scrapes.scrape_functions import pull_data
 
 
 class FantasyManager:    
-    def __init__(self, weeks, season, sources = None, positions = None, espn_league_id = None, cookies = None):
+    def __init__(self, weeks, season, sources = None, positions = None, espn_league_id = None, cookies = None, team_id = None):
         self.sources = check_sources(sources)
         self.positions = check_positions(positions)
         self.weeks = check_weeks(weeks)
-        
+        self.team_id = team_id
         
         self.current_week = get_current_week(season)
         
         self.season = str(season)
         
+        if team_id is not None:
+            self.set_team_id(team_id)
+        else:
+            self.team_id = None
         
         self.scoring_settings = league_settings['scoring_settings']
         self.lineup_slots = league_settings['lineup_slots']
@@ -42,7 +46,6 @@ class FantasyManager:
         self.projections = out_df.copy()
    
        	return out_df
-
 
     def get_league_info(self, espn_league_id, cookies = None):
         self.teams, self.roster = get_espn_info(self.season, espn_league_id, cookies = cookies)
@@ -125,8 +128,15 @@ class FantasyManager:
     
     
     
-    def get_best_lineup(self, in_df = None, scoring_period = None, include_fa = True, depth = 2, positions = None):
+    def get_best_lineup(self, in_df = None, scoring_period = None, include_fa = True, depth = 2, positions = None, team_id = None):
+        if team_id is not None:
+            self.set_team_id(team_id)
+        
+        if self.team_id is None:
+            print("Warning: Your team_id is not set, only free agents will be shown!")
             
+        
+        
         slot_ids = {'QB': 1, 'RB': 2, 'WR': 3, 'TE': 4, 'Flex': 5, 'DST': 6, 'K': 7}
         
         df = in_df.copy() if in_df else self.projections.copy()
