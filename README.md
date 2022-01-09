@@ -47,13 +47,13 @@ fm.combine_sources()
 
 
 ## Notes
-* Your ESPN League ID can be found in the url to your league, in the format 'https://fantasy.espn.com/football/league?**leagueId=12345**' where '12345' is the League ID.
+* Your ESPN League ID can be found in the url to your league, in the format https://fantasy.espn.com/football/league?**leagueId=12345** where '12345' is the League ID.
 
 * For private ESPN leagues the swid and espn_s2 cookies must be provided. The cookies can be found in Chrome with the following steps:
   1. Login to your ESPN account and go to your fantasty team
   2. Right click anywhere on the page and click 'select'
   3. Click the 'Application' tab at the top of the page
-  4. On the left-hand side find 'cookies' under storage and select 'https://fantasy.espn.com'
+  4. On the left-hand side find 'cookies' under storage and select https://fantasy.espn.com
   5. The cookies ('espn_s2' and 'SWID') can be found under the 'name' column. Paste the values (including the curly brackets for SWID) into a cookies dictionary 
 
 
