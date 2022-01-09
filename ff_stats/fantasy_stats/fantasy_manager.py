@@ -27,11 +27,10 @@ class FantasyManager:
         
         
     def get_projections(self, sources = None, positions = None, headers = None):
-        if scrape == True:
-            if sources is not None:
-                self.sources = sources
-            if positions is not None:
-                self.positons = positions
+        if sources is not None:
+            self.sources = sources
+        if positions is not None:
+            self.positons = positions
                 
         data = pull_data(self.sources, self.positions, self.weeks, self.current_week, self.season, headers)
         schedules = get_proteam_schedules(self.season, self.weeks, self.current_week)
