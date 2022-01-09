@@ -53,7 +53,7 @@ fm.combine_sources()
   1. Login to your ESPN account and go to your fantasty team
   2. Right click anywhere on the page and click 'select'
   3. Click the 'Application' tab at the top of the page
-  4. On the left-hand side find 'cookies' under storage and select https://fantasy.espn.com
+  4. On the left-hand side find 'cookies' under storage and select `https://fantasy.espn.com`
   5. The cookies ('espn_s2' and 'SWID') can be found under the 'name' column. Paste the values (including the curly brackets for SWID) into a cookies dictionary 
 
 
