@@ -21,7 +21,7 @@ pip install ff_stats
 # Get espn league information (See notes below)
 >>> cookies = {'swid': '{1234A567-89CD-0E1F-G2HI-3456JKLM7O7P}'}
 >>> cookies['espn_s2'] = 'ADkneoiSNFIljOIJPOIJ'
->>> fm.get_league_info(espn_league_id = '123456', cookies)
+>>> fm.get_league_info(espn_league_id = '12345', cookies)
 >>> print(fm.teams)
   team_id abbrev                 team_name   display_name       owner_name
 0       1   DRE       The Double Entandres         nowdre    Andre Nowzick
@@ -47,6 +47,8 @@ fm.combine_sources()
 
 
 ## Notes
+* Your ESPN League ID can be found in the url to your league, in the format 'https://fantasy.espn.com/football/league?**leagueId=12345**' where '12345' is the League ID.
+
 * For private ESPN leagues the swid and espn_s2 cookies must be provided. The cookies can be found in Chrome with the following steps:
   1. Login to your ESPN account and go to your fantasty team
   2. Right click anywhere on the page and click 'select'
